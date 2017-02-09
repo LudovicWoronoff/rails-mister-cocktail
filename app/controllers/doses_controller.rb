@@ -10,10 +10,13 @@ class DosesController < ApplicationController
     @dose.cocktail = @cocktail
     @dose.ingredient = @ingredient
     @dose.description = params[:dose][:description]
-    @dose.save
-    @cocktail.save
     @ingredient.save
+    @cocktail.save
+    if @dose.save
     redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
   end
 
   # def show
