@@ -38,6 +38,8 @@ gem "font-awesome-sass"
 gem "autoprefixer-rails"
 #pour utiliser les photos et cacher le code
 gem 'figaro'
+#photos
+gem 'cloudinary', '1.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
