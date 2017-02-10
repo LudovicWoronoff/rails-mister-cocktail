@@ -1,14 +1,24 @@
-<h1><%= @cocktail.name%></h1>
-
-
-<h2>Doses et ingredients</h2>
-
-<p><%= link_to 'Create a new dose', new_cocktail_dose_path(@cocktail) %></p>
-
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %>: <%= dose.ingredient.name %> </li>
-  <% end%>
-</ul>
-
-<p><%= link_to 'Back', cocktails_path %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1><%= @cocktail.name %></h1>
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+          <li>
+            <%= dose.description %> of <%=link_to dose.ingredient.name ingredient_path(dose.ingredient)%> </li>
+            <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="fa fa-trash"></i>
+            <% end%>
+          </li>
+        <% end%>
+      </ul>
+      <h3>Create a new dose</h3>
+      <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+        <%= f.input :description, input_html: { placeholder: "5cl" }  %>
+        <%= f.association :ingredient, collection: Ingredient.all, prompt: "Select an ingredient" %>
+        <%= f.submit class: "btn btn-primary"%>
+      <% end %>
+      <%= link_to 'Back', cocktails_path %>
+    </div>
+  </div>
+</div>
