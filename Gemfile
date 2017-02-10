@@ -36,6 +36,8 @@ gem "bootstrap-sass"
 gem "simple_form"
 gem "font-awesome-sass"
 gem "autoprefixer-rails"
+#pour utiliser les photos et cacher le code
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
