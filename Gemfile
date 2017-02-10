@@ -40,6 +40,8 @@ gem "autoprefixer-rails"
 gem 'figaro'
 #photos
 gem 'cloudinary', '1.1.0'
+#pour uploader les photos
+gem 'carrierwave'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

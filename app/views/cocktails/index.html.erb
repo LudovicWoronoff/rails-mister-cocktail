@@ -1,8 +1,5 @@
-<h1 class="text-center">The cocktails:</h1>
+<!-- <h1 class="text-center">The cocktails:</h1> -->
 
-<div class="text-center padded">
-  <%= link_to "Create a new cocktail", new_cocktail_path, class: "btn btn-primary" %>
-</div>
 
 <div class="container">
   <div class="row">
@@ -10,11 +7,11 @@
       <div class="col-xs-12 col-sm-4">
         <div class="card text-center">
 
-          <% if cocktail.picture %>
-            <div class="card-header" style="background-image: url('<%= image_path cocktail.picture%>')">
+          <% if cocktail.photo %>
+            <div class="card-header" style="background-image: url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
             </div>
           <% else %>
-            <div class="card-header" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
+            <div class="card-header" style="background-image: url('<%= cl_image_path("non_existing_id.png", :default_image => "my_default_image.png") %>')">
             </div>
           <% end %>
           <div class="card-body">
